@@ -1,0 +1,33 @@
+﻿kubectl Commands
+
+
+* Config kubectl cmd-line access
+   * gcloud container clusters get-credentials <cluster-name> --zone <zone> --project <project full name>
+   * Ex:  gcloud container clusters get-credentials gcp-ace-cluster-1 --zone us-central1-c --project gcp-ace-k8s-282817
+* Retrieve cluster nodes
+   * kubectl get nodes
+* kubectl apply -f <MANIFEST_FILE> - create service
+* kubectl get service - retrieve the static IP
+* kubectl get apiservices - ??
+* kubectl apply -f ./ping-deploy.yml -- deploy Deployment
+* kubectl get deploy - view deployment(s)
+* kubectl get pods -o wide -- view running Pods
+* kubectl exec -it <pod_name> bash -- logon to Pod
+* kubectl get nodes -o jsonpath='{.items[*].spec.podCIDR}' - view deployed Pod CIDR blocks
+* kubectl get svc - view svcs
+* kubectl get svc --watch - "tail" svcs being deployed
+* kubectl describe svc <svc_name>
+* kubectl get pv
+* kubectl get rs - view replica set
+* kubectl version -o yaml - view K8s version
+* kubectl get deploy - get replica set
+* kubectl apply -f <MANIFEST_FILE> --record - submit yaml file to API Server & record
+* kubectl rollout history deploy [deployment_name] - review update history (if --record set on deploy cmd)
+* kubectl rollout undo deploy [deployment_name]- rollback to previous version
+   * Rollbacks can cause conflicts btwn declared version and running version
+      * Rollbacks:  should !done by cmd-line, but by declarative chgs
+* kubectl get hpa [--namespace <namespace>]- retrieve HPA data
+* kubectl config current-context
+* kubectl get clusterrolebindings - retrieve default clusterRoles & clusterRoleBindings
+* kubectl get clusterrolebindings - retrieve default clusterRoles & clusterRoleBindings
+* kubectl config use-context <username> - “switch user” in K8s (??)
