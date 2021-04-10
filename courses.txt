@@ -1,0 +1,3 @@
+Go:  The Complete Developer’s Guide (Golang)
+Python 3 for System Administrators
+Complete Bash Shell Scripting with Real Life Examples
